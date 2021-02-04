@@ -13,6 +13,6 @@ def dealwith_comment(inputfilelink, col1, col2, output_link):
   otherinfo[col1] = otherinfo[col1].apply(lambda x: x.replace('T',' '))
   otherinfo[col1] = otherinfo[col1].apply(lambda x: x.replace('Z',''))
   
-  secondresult = pd.to_csv(output_link,index=False)
+  secondresult = otherinfo.to_csv(output_link,index=False)
 
   return secondresult
