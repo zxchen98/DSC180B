@@ -49,7 +49,9 @@ def page_view(read_link, to_link):
   page_view = pd.concat(frames)
   
   page_view = page_view[['title','views']]
-  result = pd.to_csv(to_link, index = False)
+  last_dataf = result.merge(page_view, how='left', on='title')
+  
+  result = last_dataf.to_csv(to_link, index = False)
   return result
   
   
