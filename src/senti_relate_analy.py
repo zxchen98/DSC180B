@@ -14,7 +14,7 @@ def sentiment_related(sco_linkl, githublink, lexicon_link, tocsvname):
   file.close()
 
   #start check the stange words in lexicon
-  f = open("vader_lexicon.txt", "r")
+  f = open(lexicon_link, "r")
   x = f.readlines()
   find_list = []
   for i in x:
