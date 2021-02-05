@@ -2,7 +2,7 @@ import requests as req
 import pandas as pd
 import numpy as np
 
-def sentiment_related(sco_linkl, githublink, lexicon_link, tocsvname):
+def sentiment_related(sco_link, githublink, lexicon_link, tocsvname):
   score_dataf = pd.read_csv(sco_link)
   url = githublink
   res = req.get(url)

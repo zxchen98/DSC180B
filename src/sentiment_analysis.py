@@ -1,4 +1,6 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import pandas as pd
+import numpy as np
 
 def sentiment_analysis(inputlink,towardlink):
   last_dataf = pd.read_csv(inputlink)
