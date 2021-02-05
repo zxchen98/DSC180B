@@ -17,6 +17,8 @@ from attrdict import AttrDict
 import pageviewapi
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import requests as req
+import sys
+import json
 
 
 sys.path.insert(0, 'src') # add library code to path

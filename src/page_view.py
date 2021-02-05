@@ -1,5 +1,7 @@
 from attrdict import AttrDict 
 import pageviewapi
+import pandas as pd
+import numpy as np
 
 def page_view(read_link, to_link):
   result = pd.read_csv(read_link)
