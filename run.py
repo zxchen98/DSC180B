@@ -59,6 +59,8 @@ def main(targets):
         cfg = load_params(DEALWITHCOMMENT_PARAMS)
         result_M = dealwith_comment(**cfg)
 
+        cfg = load_params(FIRSET_STEP_PARAMS)
+        revision_analysis_df = first_step(**cfg)
 
         cfg = load_params(ENGLISH_LIGHDUMP_DATA_PARAMS)
         revision_analysis_df = english_ligh_dump(**cfg)

@@ -2,14 +2,15 @@ import requests
 import urllib.request
 import zipfile
 from functools import reduce
+import pandas as pd
 
 def first_step(url_first, rorw, write_file):
   url = url_first 
   filehandle, _ = urllib.request.urlretrieve(url)
   zip_file_object = zipfile.ZipFile(filehandle, rorw)
   first_file = zip_file_object.namelist()[0]
-  file = zip_file_object.open(first_file)
-  content = file.read()
+  file1 = zip_file_object.open(first_file)
+  content = file1.read()
   
   tempzip = open(write_file, "wb")
   tempzip.seek(0)
