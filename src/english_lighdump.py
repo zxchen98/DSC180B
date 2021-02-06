@@ -45,6 +45,7 @@ def merge_with_en(chunk):
     chunk['date'] = chunk['date'].apply(lambda x: str(x).replace('T',' '))
     chunk['date'] = chunk['date'].apply(lambda x: str(x).replace('Z',''))
     newmal=create_title_col(chunk)
+    otherinfo = pd.read_csv("test/output/otherinfo.csv")
     each=pd.merge(newmal,otherinfo,left_on=['date','commentor'],right_on=['date','commentor'],how='inner')
     return each
     
