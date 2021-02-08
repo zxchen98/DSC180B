@@ -25,6 +25,6 @@ We get our English light dump data from WikiWarMonitor and XML file from the Wik
 
 # Responsibility
 
-Coding: Xingyu Jiang, Xiangchen Zhao and Hengyu Liu
-Notebook: Xiangchen Zhao
+Coding: Xingyu Jiang-----Analysis on sentiment score, Xiangchen Zhao----Analysis on page view counts and Hengyu Liu-----Analysis on bot statistics
+Notebook: Xiangchen Zhao, Hengyu Liu 
 Report: Xingyu Jiang, Xiangchen Zhao and Hengyu Liu
