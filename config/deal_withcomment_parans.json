@@ -1,5 +1,5 @@
 {
-  "inputfilelink":"test/output/raw_df.csv",
+  "inputfilelink":"test/output/raw_dump_b.csv",
   "col1":"date",
   "col2":"commentor",
   "output_link":"test/output/otherinfo.csv"
