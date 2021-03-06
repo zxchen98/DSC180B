@@ -6,15 +6,14 @@ def sentiment_analysis(inputlink,towardlink):
   last_dataf = pd.read_csv(inputlink)
   new_dictionary = {}
   for i in np.arange(last_dataf.shape[0]):
+      comments = last_dataf.iloc[i]['comment']
+      analyzer = SentimentIntensityAnalyzer()
       try:
-          comments = last_dataf.iloc[i]['comment']
-
-          analyzer = SentimentIntensityAnalyzer()
           vader_score = analyzer.polarity_scores(comments)
-
-          new_dictionary[comments] = vader_score['compound']
       except:
-          new_dictionary[comments] = 0
+          new_dictionary[comments]=0
+      new_dictionary[comments] = vader_score['compound']
+  
   null_dataframe = pd.DataFrame()
   null_dataframe['comment'] = new_dictionary.keys()
   null_dataframe['sentiment_score'] = new_dictionary.values()
