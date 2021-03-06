@@ -24,10 +24,11 @@ import json
 sys.path.insert(0, 'src') # add library code to path
 from src.deal_withcomment import dealwith_comment
 from src.english_lighdump import first_step, create_title_col, merge_with_en, concat_together, english_ligh_dump
-from src.get_data import find_count,download_xml_file
+from src.get_data import find_count,getMtest,download_xml_file
 from src.page_view import page_view
-from src.senti_relate_analy import sentiment_related
+from src.Analysis import Analysis
 from src.sentiment_analysis import sentiment_analysis
+from src.generatefinaldatf import generate_final_dataframe
 
 
 
@@ -37,8 +38,12 @@ ENGLISH_LIGHDUMP_DATA_PARAMS = 'config/english_lightdump_params.json'
 FIRSET_STEP_PARAMS = 'config/first_step_params.json'
 GET_DATA_PARAMS = 'config/get_data_params.json'
 PAGE_VIEW_PARAMS = 'config/page_view_params.json'
-SENTIRELATED_PARAMS = 'config/senti_relate_analy_params.json'
 SENTIMENT_ANALYSIS_PARAMS = 'config/sentiment_anakysis_params.json'
+ANALYSIS = 'config/analysis_params.json'
+FINALDATAFRAME = 'config/finaldataf.py'
+PAGE_VIEW_ALL_PARAMS = 'config/page_view_all.json'
+SAVEM = 'config/savem.json'
+SENTIMENT_ALL_PARAMS = 'config/sentiment_all.json'
 
 
 
@@ -52,9 +57,11 @@ def load_params(fp):
 def main(targets):
 
     if "all" in targets: 
+        cfg = load_params(SAVEM)
+        result_M = getMtest(**cfg)
+        
         cfg = load_params(GET_DATA_PARAMS)
         result_M = download_xml_file(**cfg)
-        
                 
         cfg = load_params(DEALWITHCOMMENT_PARAMS)
         result_M = dealwith_comment(**cfg)
@@ -65,15 +72,17 @@ def main(targets):
         cfg = load_params(ENGLISH_LIGHDUMP_DATA_PARAMS)
         revision_analysis_df = english_ligh_dump(**cfg)
 
-        cfg = load_params(PAGE_VIEW_PARAMS)
+        cfg = load_params(PAGE_VIEW_ALL_PARAMS)
         age_range_df = page_view(**cfg)
         
-        cfg = load_params(SENTIMENT_ANALYSIS_PARAMS)
+        cfg = load_params(SENTIMENT_ALL_PARAMS)
         non_botand_bot = sentiment_analysis(**cfg)
         
-
-        cfg = load_params(SENTIRELATED_PARAMS)
-        bot_csv = sentiment_related(**cfg)
+        cfg = load_params(FINALDATAFRAME)
+        final_dataframe = generate_final_dataframe(**cfg)
+        
+        cfg = load_params(ANALYSIS)
+        analysis_figures = Analysis(**cfg)
 
 
     if "test" in targets:
@@ -84,8 +93,11 @@ def main(targets):
         cfg = load_params(SENTIMENT_ANALYSIS_PARAMS)
         non_botand_bot = sentiment_analysis(**cfg)
 
-        cfg = load_params(SENTIRELATED_PARAMS)
-        bot_csv = sentiment_related(**cfg)
+        cfg = load_params(FINALDATAFRAME)
+        non_botand_bot = generate_final_dataframe(**cfg)
+        
+        cfg = load_params(ANALYSIS)
+        analysis_figures = Analysis(**cfg)
 
         
         
