@@ -5,6 +5,8 @@ import numpy as np
 
 def page_view(read_link, to_link):
   result = pd.read_csv(read_link)
+  result=result.drop(columns=['Unnamed: 0'])
+  result.columns=['date','revert','edit','commentor','title','comment']
   page_view_df = result.groupby(['title']).agg({'date' : [np.min]})
   page_view_df.columns = ['min_date']
   page_view_df['title'] = page_view_df.index
@@ -25,7 +27,7 @@ def page_view(read_link, to_link):
 
           for key in page_v_dict: 
               for i in page_v_dict[key]:
-                  new_dictionary['title'] = i['article']
+                  new_dictionary['title'] = i['article'].replace('_',' ')
                   new_dictionary['timestamp'] = i['timestamp']
                   try:
                       new_dictionary['views']+=i['views']
