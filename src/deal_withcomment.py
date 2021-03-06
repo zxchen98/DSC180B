@@ -12,6 +12,8 @@ def dealwith_comment(inputfilelink, col1, col2, output_link):
   otherinfo[col1] = otherinfo[col1].apply(lambda x: x.replace('^^^_',''))
   otherinfo[col1] = otherinfo[col1].apply(lambda x: x.replace('T',' '))
   otherinfo[col1] = otherinfo[col1].apply(lambda x: x.replace('Z',''))
+  otherinfo.drop(columns=['Unnamed: 0'],inplace=True)
+  otherinfo.set_index('Title',inplace=True)
   
   secondresult = otherinfo.to_csv(output_link,index=False)
 
