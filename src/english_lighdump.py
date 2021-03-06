@@ -60,6 +60,5 @@ def english_ligh_dump(writelink, to_dataframe):
   processed_chunks = map(merge_with_en, chunk_list)
   result = reduce(concat_together, processed_chunks)
   result.reset_index(drop=True,inplace=True)
-  result = result[['date','revert','edit','commentor','title','comment','Revision Time']]
   thrid_result = result.to_csv(to_dataframe)
   return thrid_result
