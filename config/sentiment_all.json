@@ -1,0 +1,4 @@
+{
+  "inputlink":"test/output/raw_dump_b.csv"
+  "towardlink":"test/output/score_dataf.csv"
+}
