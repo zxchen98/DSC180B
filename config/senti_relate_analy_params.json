@@ -1,6 +1,0 @@
-{
-  "sco_link":"test/output/score_dataf.csv",
-  "githublink":"https://raw.githubusercontent.com/cjhutto/vaderSentiment/master/vaderSentiment/vader_lexicon.txt",
-  "lexicon_link":"test/output/vader_lexicon.txt",
-  "tocsvname":"test/output/lexicon_after.csv"
-}
