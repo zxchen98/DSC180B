@@ -29,6 +29,8 @@ from src.page_view import page_view
 from src.Analysis import Analysis
 from src.sentiment_analysis import sentiment_analysis
 from src.generatefinaldatf import generate_final_dataframe
+from src.page_view_test import page_view_test
+from src.generatefinal_dataf_test import generate_final_dataframe_test
 
 
 
@@ -88,13 +90,13 @@ def main(targets):
     if "test" in targets:
 
         cfg = load_params(PAGE_VIEW_PARAMS)
-        age_range_df = page_view(**cfg)
+        age_range_df = page_view_test(**cfg)
         
         cfg = load_params(SENTIMENT_ANALYSIS_PARAMS)
         non_botand_bot = sentiment_analysis(**cfg)
 
         cfg = load_params(FINALDATAFRAME)
-        non_botand_bot = generate_final_dataframe(**cfg)
+        non_botand_bot = generate_final_dataframe_test(**cfg)
         
         cfg = load_params(ANALYSIS)
         analysis_figures = Analysis(**cfg)
