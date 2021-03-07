@@ -66,6 +66,7 @@ def view_count_vs_m(nonzero_link, zero_link):
   plt.ylabel('View Counts')
   plt.title('View counts v.s. M')
   plt.savefig('test/output/figure/Viewcounts v.s. M.png')
+  plt.close()
   
   
 
