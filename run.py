@@ -31,6 +31,7 @@ from src.sentiment_analysis import sentiment_analysis
 from src.generatefinaldatf import generate_final_dataframe
 from src.page_view_test import page_view_test
 from src.generatefinal_dataf_test import generate_final_dataframe_test
+from src.Weighted_sum_formula import weighted_sum, weighted_sum_formula
 
 
 
@@ -46,6 +47,7 @@ FINALDATAFRAME = 'config/finaldataf.json'
 PAGE_VIEW_ALL_PARAMS = 'config/page_view_all.json'
 SAVEM = 'config/savem.json'
 SENTIMENT_ALL_PARAMS = 'config/sentiment_all.json'
+WEIGHTED_SUM_PARAMS = 'config/weighted_sum.json'
 
 
 
@@ -88,6 +90,10 @@ def main(targets):
 
         cfg = load_params(ANALYSIS)
         view_countvsM = view_count_vs_m(**cfg)
+        
+        cfg = load_params(WEIGHTED_SUM_PARAMS)
+        view_countvsM = weighted_sum_formula(**cfg)
+
 
 
     if "test" in targets:
@@ -106,6 +112,9 @@ def main(targets):
 
         cfg = load_params(ANALYSIS)
         view_countvsM = view_count_vs_m(**cfg)
+        
+        cfg = load_params(WEIGHTED_SUM_PARAMS)
+        view_countvsM = weighted_sum_formula(**cfg)
 
         
         
