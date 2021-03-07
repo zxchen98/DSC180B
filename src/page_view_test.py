@@ -1,14 +1,20 @@
+import pandas as pd
+import numpy as np
+from attrdict import AttrDict 
+import pageviewapi
 def page_view_test(read_link, to_link):
     result = pd.read_csv(read_link)
     result=result.drop(columns=['Unnamed: 0'])
+    result['title'] = result['title'].str.replace("_", " ")
     result.columns=['date','revert','edit','commentor','title','comment','Revision Time','M']
     page_view_df = result.groupby(['title']).agg({'date' : [np.min]})
     page_view_df.columns = ['min_date']
     page_view_df['title'] = page_view_df.index
+    page_view_df['title'] = page_view_df['title'].str.replace("_", " ")
     page_view_df = page_view_df.reset_index(drop = True)
     page_view_df['min_date'] = pd.to_datetime(page_view_df['min_date'])
     page_view_df['min_date'] = page_view_df.min_date.map(lambda x: x.strftime('%Y%m%d'))
-    
+
     dataframe = pd.DataFrame()
     dictionary_other = {}
     for i in np.arange(page_view_df.shape[0]):

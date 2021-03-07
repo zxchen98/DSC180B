@@ -1,13 +1,20 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 def Analysis(nonzero_link, zero_link):
   #first analysis for corr between M and sentiment score
   nzerom = pd.read_csv(nonzero_link)
   zerom = pd.read_csv(zero_link)
-  zero_title=nzerom.groupby('title').mean()
-  zero_title.plot.scatter(x='M',
-                        y='sentiment_score',
-                        c='DarkBlue',
-                         title='M VS Sentiment')
-  zero_title.savefig('test/output/figure/M_VS_Sentiment.png')
+  nzero_title=nzerom.groupby('title').mean()
+  X = nzero_title['M']
+  Y = nzero_title['sentiment_score']
+  plt.scatter(y=Y,x = X)
+  plt.xlabel('M')
+  plt.ylabel('sentiment_score')
+  plt.title('M VS Sentiment')
+  plt.savefig('test/output/figure/M_VS_Sentiment.png')
+  plt.close()
+
   
   #second analysis for example of Wooster Ohio
   zerom_withsen=zerom.loc[zerom['title']=='Wooster, Ohio']['sentiment_score']
@@ -15,13 +22,16 @@ def Analysis(nonzero_link, zero_link):
   plt.title('Sentiment Score Distribution in One Article')
   plt.xlabel('Sentiment Score') 
   plt.ylabel('Comment Counts')
+
   
   plt.savefig('test/output/figure/Wooster_example.png')
-  
+  plt.close()
+
   #third analysis for relationship between pageview and sentiment score
   all_views=nzerom.groupby('title').mean()
   all_views['views']=np.log(all_views['views'])
-  y=all_views['views']
+
+  y=all_views['views'].fillna(0)
   x=all_views['sentiment_score']
   plt.scatter(y=abs(y),x=abs(x))
 
@@ -32,23 +42,30 @@ def Analysis(nonzero_link, zero_link):
   plt.xlabel('Sum Sentiment Score')
   plt.ylabel('View Counts')
   plt.title('Sentiment VS View')
-  plt.savefig('Sentiment vs View.png')
-  
+  plt.savefig('test/output/figure/Sentiment vs View.png')
+  plt.close()
+
+def view_count_vs_m(nonzero_link, zero_link):
+  nzerom = pd.read_csv(nonzero_link)
+  zerom = pd.read_csv(zero_link)
+  all_views=nzerom.groupby('title').mean()
+  all_views['views']=np.log(all_views['views'])
+
   #fourth analysis for view counts with M
   logm = all_views.copy()
   logm['M'] = np.log(logm['M']+1)
-  y=logm['views']
-  x=logm['M']
-  plt.scatter(y=abs(y),x=abs(x))
+  y_axis=logm['views'].fillna(0)
+  x_axis=logm['M']
+  plt.scatter(y=abs(y_axis),x=abs(x_axis))
 
-  z = np.polyfit(x, y, 1)
+  z = np.polyfit(x_axis, y_axis, 1)
   p = np.poly1d(z)
-  plt.plot(x,p(x),"r--")
+  plt.plot(x_axis,p(x_axis),"r--")
 
   plt.xlabel('M')
   plt.ylabel('View Counts')
   plt.title('View counts v.s. M')
-  plt.savefig('Viewcounts v.s. M.png')
+  plt.savefig('test/output/figure/Viewcounts v.s. M.png')
   
   
 

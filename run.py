@@ -26,7 +26,7 @@ from src.deal_withcomment import dealwith_comment
 from src.english_lighdump import first_step, create_title_col, merge_with_en, concat_together, english_ligh_dump
 from src.get_data import find_count,getMtest,download_xml_file
 from src.page_view import page_view
-from src.Analysis import Analysis
+from src.Analysis import Analysis,view_count_vs_m
 from src.sentiment_analysis import sentiment_analysis
 from src.generatefinaldatf import generate_final_dataframe
 from src.page_view_test import page_view_test
@@ -42,7 +42,7 @@ GET_DATA_PARAMS = 'config/get_data_params.json'
 PAGE_VIEW_PARAMS = 'config/page_view_params.json'
 SENTIMENT_ANALYSIS_PARAMS = 'config/sentiment_anakysis_params.json'
 ANALYSIS = 'config/analysis_params.json'
-FINALDATAFRAME = 'config/finaldataf.py'
+FINALDATAFRAME = 'config/finaldataf.json'
 PAGE_VIEW_ALL_PARAMS = 'config/page_view_all.json'
 SAVEM = 'config/savem.json'
 SENTIMENT_ALL_PARAMS = 'config/sentiment_all.json'
@@ -86,6 +86,9 @@ def main(targets):
         cfg = load_params(ANALYSIS)
         analysis_figures = Analysis(**cfg)
 
+        cfg = load_params(ANALYSIS)
+        view_countvsM = view_count_vs_m(**cfg)
+
 
     if "test" in targets:
 
@@ -100,6 +103,9 @@ def main(targets):
         
         cfg = load_params(ANALYSIS)
         analysis_figures = Analysis(**cfg)
+
+        cfg = load_params(ANALYSIS)
+        view_countvsM = view_count_vs_m(**cfg)
 
         
         

@@ -1,10 +1,11 @@
+import pandas as pd
+import numpy as np
 def generate_final_dataframe_test(lastdataf_link, nonzeo_link,zero_link):
   last_dataf = pd.read_csv(lastdataf_link)
   last_dataf['title'] = last_dataf['title'].str.replace('_', ' ')
   
   zxc = last_dataf.copy()
-  zxc.drop(columns = ['Unnamed: 0'], inplace = True)
-  nonzero0m = zxc[zxc['M']!=0]
+  nzerom = zxc[zxc['M']!=0]
   zerom = zxc[zxc['M']==0]
   
   nzerom['M']=np.log(nzerom['M'])
@@ -28,7 +29,7 @@ def generate_final_dataframe_test(lastdataf_link, nonzeo_link,zero_link):
                            'M': 'mean'})
 
   
-  nonzero0m.to_csv(nonzeo_link,index=False)
+  nzerom.to_csv(nonzeo_link,index=False)
   zerom.to_csv(zero_link,index=False)
   
-  return nonzero0m, zerom
+  return nzerom, zerom
