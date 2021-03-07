@@ -43,7 +43,7 @@ def weighted_sum_formula(nzerom_link,zerom_link):
   plt.legend(loc="upper right")
   plt.ylabel('M Statistic')
   plt.title('M score performance')
-  plt.savefig('test/output/figure/M score performance.png')
+  plt.savefig('test/output/M score performance.png')
   plt.close()
   
   prev=zero_title['M'].sort_values(ascending=False)
@@ -53,4 +53,4 @@ def weighted_sum_formula(nzerom_link,zerom_link):
   plt.legend(loc="upper right")
   plt.ylabel('Weighted Sum Score')
   plt.title('Weighted sum formula performance')
-  plt.savefig('test/output/figure/Weighted sum formula performance.png')
+  plt.savefig('test/output/Weighted sum formula performance.png')

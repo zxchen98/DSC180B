@@ -2,7 +2,18 @@ import pandas as pd
 import numpy as np
 from attrdict import AttrDict 
 import pageviewapi
+import os
 def page_view_test(read_link, to_link):
+
+    directory = "output"
+        
+    # Parent Directory path  
+    parent_dir = "./test/"
+        
+    path = os.path.join(parent_dir, directory) 
+    os.mkdir(path)  
+    print(path) 
+
     result = pd.read_csv(read_link)
     result=result.drop(columns=['Unnamed: 0'])
     result['title'] = result['title'].str.replace("_", " ")

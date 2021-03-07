@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os 
 def Analysis(nonzero_link, zero_link):
+
   #first analysis for corr between M and sentiment score
   nzerom = pd.read_csv(nonzero_link)
   zerom = pd.read_csv(zero_link)
@@ -12,7 +14,7 @@ def Analysis(nonzero_link, zero_link):
   plt.xlabel('M')
   plt.ylabel('sentiment_score')
   plt.title('M VS Sentiment')
-  plt.savefig('test/output/figure/M_VS_Sentiment.png')
+  plt.savefig('test/output/M_VS_Sentiment.png')
   plt.close()
 
   
@@ -24,7 +26,7 @@ def Analysis(nonzero_link, zero_link):
   plt.ylabel('Comment Counts')
 
   
-  plt.savefig('test/output/figure/Wooster_example.png')
+  plt.savefig('test/output/Wooster_example.png')
   plt.close()
 
   #third analysis for relationship between pageview and sentiment score
@@ -42,7 +44,7 @@ def Analysis(nonzero_link, zero_link):
   plt.xlabel('Sum Sentiment Score')
   plt.ylabel('View Counts')
   plt.title('Sentiment VS View')
-  plt.savefig('test/output/figure/Sentiment vs View.png')
+  plt.savefig('test/output/Sentiment vs View.png')
   plt.close()
 
 def view_count_vs_m(nonzero_link, zero_link):
@@ -65,7 +67,7 @@ def view_count_vs_m(nonzero_link, zero_link):
   plt.xlabel('M')
   plt.ylabel('View Counts')
   plt.title('View counts v.s. M')
-  plt.savefig('test/output/figure/Viewcounts v.s. M.png')
+  plt.savefig('test/output/Viewcounts v.s. M.png')
   plt.close()
   
   
