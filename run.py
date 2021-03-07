@@ -92,7 +92,7 @@ def main(targets):
         view_countvsM = view_count_vs_m(**cfg)
         
         cfg = load_params(WEIGHTED_SUM_PARAMS)
-        view_countvsM = weighted_sum_formula(**cfg)
+        weightedsum = weighted_sum_formula(**cfg)
 
 
 
@@ -114,7 +114,7 @@ def main(targets):
         view_countvsM = view_count_vs_m(**cfg)
         
         cfg = load_params(WEIGHTED_SUM_PARAMS)
-        view_countvsM = weighted_sum_formula(**cfg)
+        weightedsum = weighted_sum_formula(**cfg)
 
         
         
