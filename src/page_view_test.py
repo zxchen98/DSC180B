@@ -12,7 +12,6 @@ def page_view_test(read_link, to_link):
         
     path = os.path.join(parent_dir, directory) 
     os.mkdir(path)  
-    print(path) 
 
     result = pd.read_csv(read_link)
     result=result.drop(columns=['Unnamed: 0'])
