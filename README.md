@@ -38,7 +38,9 @@ For the content of the notebook, we put our analysis graphs which are generated 
 # Resource
 
 English light dump data from WikiWarMonitor: http://wwm.phy.bme.hu/light.html
+
 XML file from the Wikimedia Data Archives: https://dumps.wikimedia.org/enwiki/20210220/
+
 And the pageview API from: https://github.com/Commonists/pageview-api
 
 # Responsibility
