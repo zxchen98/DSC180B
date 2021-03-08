@@ -5,6 +5,15 @@ import numpy as np
 import os
 
 def page_view(read_link, to_link):
+  
+  directory = "output"
+        
+    # Parent Directory path  
+  parent_dir = "./test/"
+        
+  path = os.path.join(parent_dir, directory) 
+  os.mkdir(path)  
+
   result = pd.read_csv(read_link)
   result=result.drop(columns=['Unnamed: 0'])
   result['title'] = result['title'].str.replace("_", " ")
