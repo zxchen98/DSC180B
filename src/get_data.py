@@ -16,7 +16,7 @@ def find_count(name,name_dict):
     name_dict[name]+=1
     return name_dict[name]-1
 
-def getMtest(url, to_csvname):
+def getMtest(url, to_csvname):     
     URL = url 
     r = requests.get(URL, allow_redirects=True)
     open(to_csvname, 'wb').write(r.content)
